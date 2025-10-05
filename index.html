@@ -3,67 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Lepinsk Ecotech — Engenharia & Energia</title>
-  <meta name="description" content="Engenharia elétrica com responsabilidade técnica (CREA) e soluções de energia: diagnóstico, projetos, laudos e Summer Products.">
+  <title>Lepinsk Ecotech — Engenharia elétrica, ART e energia solar em São Paulo</title>
+  <meta name="description" content="Empresa de engenharia elétrica registrada no CREA-SP. Projetos elétricos, ARTs, diagnósticos de energia, laudos técnicos e soluções em energia solar e eficiência para condomínios e comércios.">
+  <meta name="keywords" content="engenharia elétrica, projeto elétrico, ART, laudo elétrico, diagnóstico de energia, energia solar, eficiência energética, CREA-SP, São Paulo, Lepinsk Ecotech">
+  <meta name="robots" content="index,follow">
   <style>
     :root{
-      --green:#1D2615; --black:#000000; --red:#861A1A; --orange:#E49400; --bg:#f7f7f5; --card:#ffffff;
+      --green:#1D2615; --black:#111; --red:#861A1A; --orange:#E49400; --bg:#f7f7f5; --card:#ffffff;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--black);background:var(--bg);line-height:1.45}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--black);background:var(--bg);line-height:1.5;scroll-behavior:smooth}
     a{color:inherit;text-decoration:none}
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #e8e6e2}
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e9e6df}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;gap:10px;align-items:center}
-    .logo{width:12px;height:24px;background:linear-gradient(180deg,var(--green),#23301b);border-radius:2px}
-    .brand h1{font-size:16px;margin:0;font-weight:700;letter-spacing:.2px}
-    .menu{display:flex;gap:18px}
+    .logo{width:14px;height:26px;background:linear-gradient(180deg,var(--green),#23301b);border-radius:2px}
+    .brand h1{font-size:16px;margin:0;font-weight:800;letter-spacing:.2px}
+    .menu{display:flex;gap:16px;align-items:center}
     .menu a{font-weight:600;font-size:14px;opacity:.9}
-    .cta-top{padding:10px 14px;border:1px solid var(--green);border-radius:8px;font-weight:700}
-    /* hero */
-    .hero{background:linear-gradient(140deg,rgba(29,38,21,.08),rgba(228,148,0,.08));padding:56px 0 40px;border-bottom:1px solid #e8e6e2}
-    .hero h2{font-size:28px;margin:0 0 10px;color:var(--green)}
-    .hero p{max-width:780px;margin:6px 0 22px}
+    .cta-top{padding:10px 14px;border:1.5px solid var(--green);border-radius:9px;font-weight:800}
+    .hero{background:linear-gradient(140deg,rgba(29,38,21,.08),rgba(228,148,0,.08));padding:56px 0 46px;border-bottom:1px solid #e9e6df}
+    .hero h2{font-size:28px;margin:0 0 8px;color:var(--green)}
+    .hero p{max-width:780px;margin:4px 0 18px}
     .btns{display:flex;gap:12px;flex-wrap:wrap}
     .btn{padding:12px 16px;border-radius:10px;font-weight:800;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:.2s}
     .btn-primary{background:var(--orange)}
     .btn-outline{border:2px solid var(--green)}
-    .tag{display:inline-block;background:var(--red);color:#fff;padding:6px 10px;border-radius:20px;font-weight:700;font-size:12px;margin-bottom:12px}
-    /* sections */
+    .tag{display:inline-block;background:var(--red);color:#fff;padding:6px 10px;border-radius:20px;font-weight:800;font-size:12px;margin-bottom:10px}
     section{padding:44px 0}
-    h3.sec-title{font-size:22px;margin:0 0 10px;color:var(--green)}
-    p.sec-sub{margin:0 0 22px;color:#333;opacity:.9}
+    h2.sec{font-size:24px;margin:0 0 10px;color:var(--green)}
+    p.sub{margin:0 0 20px;opacity:.9}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .card{background:var(--card);border:1px solid #eceae6;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px}
-    .card h4{margin:0;font-size:16px;color:var(--green)}
-    .card p{margin:0;color:#333;opacity:.9}
-    .pill{display:inline-block;padding:4px 10px;border-radius:999px;font-weight:700;font-size:11px;background:#f0efe9;border:1px solid #e3e0d7}
+    .card h3{margin:0;font-size:18px;color:var(--green)}
+    .card p{margin:0;color:#333;opacity:.95}
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px;background:#f0efe9;border:1px solid #e3e0d7}
     .cta-row{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
     .btn-mini{padding:8px 10px;border-radius:8px;font-weight:800;font-size:12px;border:1px solid #e3e0d7}
     .btn-mini.primary{background:var(--orange);border-color:var(--orange)}
-    .note{font-size:12px;color:#444;opacity:.8}
-    /* cases */
-    .cases{background:#fff;border-top:1px solid #eceae6;border-bottom:1px solid #eceae6}
-    /* contact */
-    .contact{background:linear-gradient(180deg,#fff,rgba(228,148,0,.08))}
+    .note{font-size:12px;color:#555;opacity:.85}
+    .band{background:linear-gradient(90deg,rgba(228,148,0,.12),rgba(29,38,21,.08));border-top:1px solid #e9e6df;border-bottom:1px solid #e9e6df}
+    .list{display:grid;gap:10px}
+    .li{display:flex;gap:10px;align-items:flex-start}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--green);margin-top:8px}
     .contact .panel{background:#fff;border:1px solid #eceae6;border-radius:16px;padding:18px;display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
-    .contact label{font-size:12px;font-weight:700;color:#333}
+    .contact label{font-size:12px;font-weight:800;color:#333}
     .input{width:100%;padding:10px 12px;border:1px solid #e0ddd6;border-radius:10px;background:#faf9f7}
     textarea.input{min-height:110px;resize:vertical}
     .whats{display:flex;gap:10px;align-items:center;justify-content:flex-end}
     .seal{display:inline-block;border:1px dashed var(--red);border-radius:10px;padding:8px 10px;font-weight:800;color:var(--red)}
     footer{padding:24px 0;color:#444;font-size:13px}
-    /* responsive */
-    @media (max-width:960px){
-      .grid{grid-template-columns:1fr 1fr}
-      .contact .panel{grid-template-columns:1fr}
-    }
-    @media (max-width:640px){
-      .menu{display:none}
-      .grid{grid-template-columns:1fr}
-      .hero h2{font-size:24px}
-    }
+    @media (max-width:960px){.grid{grid-template-columns:1fr 1fr}.contact .panel{grid-template-columns:1fr}}
+    @media (max-width:640px){.menu{display:none}.grid{grid-template-columns:1fr}.hero h2{font-size:24px}}
   </style>
 </head>
 <body>
@@ -75,9 +68,12 @@
       <h1>Lepinsk Ecotech</h1>
     </div>
     <nav class="menu">
+      <a href="#institucional">Institucional</a>
       <a href="#economia">Economia de Energia</a>
-      <a href="#engenharia">Projetos & ARTs</a>
+      <a href="#engenharia">Projetos e ARTs</a>
       <a href="#cases">Cases</a>
+      <a href="#dex">DexPress</a>
+      <a href="#verao">Produtos Verão 2026</a>
       <a href="#contato" class="cta-top">Fale com um Engenheiro</a>
     </nav>
   </div>
@@ -86,8 +82,8 @@
 <section class="hero">
   <div class="container">
     <span class="tag">Empresa de Engenharia • CREA-SP</span>
-    <h2>Engenharia elétrica + soluções de energia para seu condomínio e comércio</h2>
-    <p>Diagnóstico, projetos e laudos com responsabilidade técnica. Produtos sazonais “Summer Products 2025” para preparar sua rede para o verão 2026.</p>
+    <h2>Engenharia elétrica + soluções de energia para condomínios e comércios</h2>
+    <p>Projetos, ARTs, diagnósticos e laudos com responsabilidade técnica. Produtos sazonais “Summer Products 2026” para preparar sua rede para o calor extremo.</p>
     <div class="btns">
       <a class="btn btn-primary" href="#economia">Quero economizar energia</a>
       <a class="btn btn-outline" href="#engenharia">Preciso de projeto/ART</a>
@@ -95,145 +91,176 @@
   </div>
 </section>
 
-<!-- PRATELEIRA 1 -->
-<section id="economia">
+<!-- INSTITUCIONAL -->
+<section id="institucional">
   <div class="container">
-    <h3 class="sec-title">Economia de Energia (Trilha 1)</h3>
-    <p class="sec-sub">Diagnósticos e soluções para reduzir custos e blindar sua conta contra aumentos tarifários.</p>
-    <div class="grid">
+    <h2 class="sec">Institucional</h2>
+    <p class="sub">Somos uma empresa de engenharia registrada no CREA-SP, unindo energia, projetos elétricos e automação para entregar segurança, economia e conforto.</p>
+    <div class="grid-2">
       <div class="card">
-        <span class="pill">Entrada do funil</span>
-        <h4>Diagnóstico Expresso</h4>
-        <p>Análise rápida da fatura e do consumo para identificar economia e geração solar.</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Quero meu diagnóstico</a>
-          <span class="note">Entrega rápida</span>
-        </div>
+        <span class="pill">Quem somos</span>
+        <h3>Lepinsk Ecotech</h3>
+        <p>Eng. Gustavo Ribeiro — CREA-SP (Responsável Técnico). Atuação em projetos elétricos, diagnósticos de energia e consultoria regulatória.</p>
       </div>
       <div class="card">
-        <span class="pill">Estudo pago</span>
-        <h4>Estudo Avançado de Viabilidade</h4>
-        <p>Relatório técnico-financeiro completo (solar, eficiência, baterias, Mercado Livre).</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Solicitar estudo</a>
-        </div>
-      </div>
-      <div class="card">
-        <span class="pill">Pronto pra obra</span>
-        <h4>Projeto Solar Fotovoltaico</h4>
-        <p>Projeto elétrico completo com ART, memorial e unifilar. Ideal para quem já decidiu investir.</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Quero meu projeto</a>
-        </div>
-      </div>
-      <div class="card">
-        <span class="pill">Summer Products</span>
-        <h4>Estudo de Aumento de Carga (Climatização)</h4>
-        <p>Verifique se a rede suporta novos ares-condicionados sem sobrecarga ou multa.</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Descobrir se aguenta</a>
-        </div>
-      </div>
-      <div class="card">
-        <span class="pill">Summer Products</span>
-        <h4>Estudo de Baterias / Backup</h4>
-        <p>Dimensionamento de storage para conforto e continuidade em picos e quedas.</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Pedir estudo</a>
-        </div>
-      </div>
-      <div class="card">
-        <span class="pill">Medição</span>
-        <h4>Check-up de Eficiência (1–3 meses)</h4>
-        <p>Campanha de medição com recomendações práticas em iluminação, HVAC e frio.</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Quero medir primeiro</a>
+        <span class="pill">Como trabalhamos</span>
+        <h3>Processo claro e técnico</h3>
+        <div class="list">
+          <div class="li"><div class="dot"></div><div>Briefing e coleta de dados</div></div>
+          <div class="li"><div class="dot"></div><div>Estudo técnico/viabilidade</div></div>
+          <div class="li"><div class="dot"></div><div>Projeto/relatório com ART</div></div>
+          <div class="li"><div class="dot"></div><div>Entrega, homologação e acompanhamento</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRATELEIRA 2 -->
-<section id="engenharia">
+<!-- ECONOMIA DE ENERGIA -->
+<section id="economia">
   <div class="container">
-    <h3 class="sec-title">Engenharia & Projetos (Trilha 2)</h3>
-    <p class="sec-sub">Engenharia elétrica com responsabilidade técnica, segurança e conformidade.</p>
+    <h2 class="sec">Economia de Energia</h2>
+    <p class="sub">Diagnósticos e soluções para reduzir custos e blindar sua conta de energia.</p>
     <div class="grid">
       <div class="card">
-        <span class="pill">CREA-SP</span>
-        <h4>Projeto Elétrico (Residencial / Comercial)</h4>
-        <p>Elaboração conforme NBR 5410 e normas da concessionária. Memorial + diagrama unifilar.</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Solicitar orçamento</a>
-        </div>
+        <span class="pill">Entrada do funil</span>
+        <h3>Diagnóstico Expresso</h3>
+        <p>Análise da fatura e do consumo para identificar oportunidades de economia e geração solar.</p>
+        <div class="cta-row"><a class="btn-mini primary" href="#dex">Quero meu diagnóstico</a></div>
       </div>
       <div class="card">
-        <span class="pill">Fast Cash técnico</span>
-        <h4>Desenho Técnico (Unifilar, Multifilar, Memorial)</h4>
-        <p>Revisão/criação de diagramas e documentos técnicos digitais (PDF/DXF).</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Pedir revisão</a>
-        </div>
+        <span class="pill">Estudo pago</span>
+        <h3>Estudo Avançado de Viabilidade</h3>
+        <p>Relatório técnico-financeiro (solar, eficiência, baterias e Mercado Livre 2026).</p>
+        <div class="cta-row"><a class="btn-mini primary" href="#contato">Solicitar estudo</a></div>
       </div>
       <div class="card">
-        <span class="pill">Regularização</span>
-        <h4>ART / IRT (Anotação de Responsabilidade Técnica)</h4>
-        <p>Regularize sua instalação ou obra com ART assinada por engenheiro.</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Emitir ART</a>
-        </div>
+        <span class="pill">Pronto para obra</span>
+        <h3>Projeto Solar Fotovoltaico</h3>
+        <p>Projeto elétrico completo com ART, memorial e diagrama — ideal para quem já decidiu investir.</p>
+        <div class="cta-row"><a class="btn-mini primary" href="#contato">Quero meu projeto</a></div>
       </div>
+      <div class="card">
+        <span class="pill">Medição</span>
+        <h3>Check-up de Eficiência (1–3 meses)</h3>
+        <p>Campanha de medição com recomendações práticas (iluminação, HVAC, refrigeração).</p>
+        <div class="cta-row"><a class="btn-mini primary" href="#contato">Quero medir primeiro</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGENHARIA & PROJETOS -->
+<section id="engenharia">
+  <div class="container">
+    <h2 class="sec">Projetos e ARTs</h2>
+    <p class="sub">Engenharia elétrica com responsabilidade técnica, segurança e conformidade.</p>
+
+    <div class="card" style="margin-bottom:18px">
+      <span class="pill">CREA-SP</span>
+      <h3>Projetos Elétricos e ARTs — Residenciais, Comerciais e Industriais</h3>
+      <p>Elaboração de projeto elétrico conforme NBR 5410 e normas da distribuidora, com memorial, diagrama unifilar/multifilar e ART. Regularização e homologação junto à concessionária.</p>
+      <div class="cta-row">
+        <a class="btn-mini primary" href="#contato">Solicitar orçamento</a>
+        <span class="note">Prazo padrão de entrega: até 5 dias úteis (pode variar com a complexidade).</span>
+      </div>
+    </div>
+
+    <div class="grid">
       <div class="card">
         <span class="pill">Laudos</span>
-        <h4>Laudo de Conformidade & Vistoria</h4>
-        <p>Relatório técnico para condomínios, seguradoras e conformidade com normas.</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Solicitar laudo</a>
-        </div>
+        <h3>Laudo de Conformidade & Vistoria</h3>
+        <p>Relatório técnico para condomínios, seguradoras e conformidade com normas. Emissão de ART.</p>
+        <div class="cta-row"><a class="btn-mini primary" href="#contato">Solicitar laudo</a></div>
       </div>
       <div class="card">
         <span class="pill">Perícia</span>
-        <h4>Perícia Técnica (TJ)</h4>
-        <p>Atuação como perito cadastrado. Laudos periciais e suporte a processos.</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Falar sobre perícia</a>
+        <h3>Perícia Técnica (TJ)</h3>
+        <p>Atuação como perito cadastrado no Tribunal de Justiça. Laudos periciais e suporte a processos.</p>
+        <div class="cta-row"><a class="btn-mini primary" href="#contato">Falar sobre perícia</a></div>
+      </div>
+      <div class="card">
+        <span class="pill">Execução</span>
+        <h3>Acompanhamento de Obras</h3>
+        <p>Supervisão técnica e comissionamento de instalações (parceria com empresa de engenharia).</p>
+        <div class="cta-row"><a class="btn-mini primary" href="#contato">Agendar acompanhamento</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEXPRESS -->
+<section id="dex" class="band">
+  <div class="container">
+    <h2 class="sec">DexPress — Diagnóstico Expresso</h2>
+    <p class="sub">Descubra em poucos dias quanto seu negócio pode economizar e qual o melhor caminho: eficiência, solar, baterias ou ajustes tarifários.</p>
+    <div class="grid-2">
+      <div class="card">
+        <span class="pill">Como funciona</span>
+        <h3>Rápido, técnico e acionável</h3>
+        <div class="list">
+          <div class="li"><div class="dot"></div><div>Coleta de faturas e dados básicos</div></div>
+          <div class="li"><div class="dot"></div><div>Análises de consumo, demanda e perfil</div></div>
+          <div class="li"><div class="dot"></div><div>Parecer com próximos passos</div></div>
+        </div>
+        <div class="cta-row" style="margin-top:10px">
+          <!-- se tiver landing própria, substitua o href abaixo pela URL -->
+          <a class="btn-mini primary" href="#contato">Quero meu DexPress</a>
         </div>
       </div>
       <div class="card">
-        <span class="pill">Summer Products</span>
-        <h4>Revisão Elétrica de Verão</h4>
-        <p>Vistoria preventiva para evitar sobrecargas e quedas em dias de calor extremo.</p>
-        <div class="cta-row">
-          <a class="btn-mini primary" href="#contato">Agendar revisão</a>
-        </div>
+        <span class="pill">Entrega</span>
+        <h3>PDF executivo + call de 20 min</h3>
+        <p>Você recebe um relatório direto ao ponto com estimativas claras de economia e um plano de ação.</p>
+        <span class="note">Prazo padrão: até 5 dias úteis.</span>
       </div>
     </div>
-    <p class="note" style="margin-top:10px;">Execução e acompanhamento de obras via parceria técnica (Renato/Astron). ART e relatórios assinados.</p>
+  </div>
+</section>
+
+<!-- PRODUTOS VERÃO -->
+<section id="verao">
+  <div class="container">
+    <h2 class="sec">Produtos Verão 2026 — Summer Products</h2>
+    <p class="sub">Prepare sua rede para o calor extremo: conforto, resiliência e conformidade.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="pill">Climatização</span>
+        <h3>Estudo de Aumento de Carga</h3>
+        <p>Verifique se a rede suporta novos ares-condicionados sem sobrecarga ou multa da concessionária.</p>
+        <div class="cta-row"><a class="btn-mini primary" href="#contato">Agendar estudo</a></div>
+      </div>
+      <div class="card">
+        <span class="pill">Resiliência</span>
+        <h3>Estudo de Baterias / Backup</h3>
+        <p>Dimensionamento para continuidade de operação em quedas e picos de demanda.</p>
+        <div class="cta-row"><a class="btn-mini primary" href="#contato">Pedir dimensionamento</a></div>
+      </div>
+      <div class="card">
+        <span class="pill">Preventivo</span>
+        <h3>Revisão Elétrica de Verão</h3>
+        <p>Vistoria preventiva para evitar sobrecargas e quedas nos dias mais quentes.</p>
+        <div class="cta-row"><a class="btn-mini primary" href="#contato">Agendar revisão</a></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CASES -->
-<section id="cases" class="cases">
+<section id="cases" class="band">
   <div class="container">
-    <h3 class="sec-title">Cases e Projetos</h3>
-    <p class="sec-sub">Cada projeto é um capítulo da nossa engenharia aplicada.</p>
+    <h2 class="sec">Cases</h2>
+    <p class="sub">Cada projeto é um capítulo da nossa engenharia aplicada.</p>
     <div class="grid">
-      <div class="card">
-        <h4>IS Vila Buarque — SP</h4>
-        <p>Diagnóstico técnico e estruturação de upgrade da usina + estudo de baterias.</p>
-        <div class="cta-row"><a class="btn-mini" href="#contato">Quero algo similar</a></div>
-      </div>
-      <div class="card">
-        <h4>Papelaria — SP</h4>
-        <p>Projeto executivo solar com expansão de carga e infraestrutura para VE.</p>
-        <div class="cta-row"><a class="btn-mini" href="#contato">Quero meu projeto</a></div>
-      </div>
-      <div class="card">
-        <h4>Supermercados — Jacareí</h4>
-        <p>Diagnóstico energético e análise de faturas para GD e eficiência.</p>
-        <div class="cta-row"><a class="btn-mini" href="#contato">Começar diagnóstico</a></div>
-      </div>
+      <div class="card"><h3>IS Vila Buarque — SP</h3><p>Diagnóstico técnico e estruturação de upgrade da usina + estudo de baterias.</p><div class="cta-row"><a class="btn-mini" href="#contato">Quero algo similar</a></div></div>
+      <div class="card"><h3>Platô</h3><p>Estudo de viabilidade e diretrizes elétricas para implantação de geração distribuída.</p><div class="cta-row"><a class="btn-mini" href="#contato">Ver estudo</a></div></div>
+      <div class="card"><h3>Papelaria — SP</h3><p>Projeto executivo solar com expansão de carga e infraestrutura para veículo elétrico.</p><div class="cta-row"><a class="btn-mini" href="#contato">Quero meu projeto</a></div></div>
+      <div class="card"><h3>Cadoro</h3><p>Análise de faturas, perfil de demanda e recomendações de eficiência.</p><div class="cta-row"><a class="btn-mini" href="#contato">Começar diagnóstico</a></div></div>
+      <div class="card"><h3>Bela Cintra</h3><p>Revisão técnica de quadros e aterramento com relatório de conformidade.</p><div class="cta-row"><a class="btn-mini" href="#contato">Solicitar revisão</a></div></div>
+      <div class="card"><h3>Supermercado EE</h3><p>Diagnóstico energético e análise de refrigeração e climatização.</p><div class="cta-row"><a class="btn-mini" href="#contato">Ver similar</a></div></div>
+      <div class="card"><h3>Residencial Santa Cecília (automação)</h3><p>Integração de medição e automação com diretrizes de eficiência.</p><div class="cta-row"><a class="btn-mini" href="#contato">Quero algo assim</a></div></div>
+      <div class="card"><h3>Academia</h3><p>Check-up de eficiência e estudo de aumento de carga para climatização.</p><div class="cta-row"><a class="btn-mini" href="#contato">Agendar check-up</a></div></div>
+      <div class="card"><h3>Padaria • Restaurante • Hotel</h3><p>Planos de eficiência, segurança elétrica e continuidade de operação.</p><div class="cta-row"><a class="btn-mini" href="#contato">Falar com engenheiro</a></div></div>
     </div>
   </div>
 </section>
@@ -241,10 +268,10 @@
 <!-- CONTATO -->
 <section id="contato" class="contact">
   <div class="container">
-    <h3 class="sec-title">Fale com um Engenheiro</h3>
-    <p class="sec-sub">Conte o que você precisa e receba retorno rápido com o melhor caminho técnico.</p>
+    <h2 class="sec">Fale com um Engenheiro</h2>
+    <p class="sub">Conte o que você precisa e receba retorno rápido com o melhor caminho técnico.</p>
     <div class="panel">
-      <form onsubmit="window.open('https://wa.me/55SEUNUMEROAQUI?text='+encodeURIComponent(document.getElementById('msg').value),'_blank');return false;">
+      <form onsubmit="window.open('https://wa.me/5511998999163?text='+encodeURIComponent(document.getElementById('msg').value),'_blank');return false;">
         <label>Nome</label>
         <input class="input" type="text" placeholder="Seu nome" required>
         <label>E-mail</label>
@@ -253,14 +280,13 @@
         <textarea id="msg" class="input" placeholder="Ex.: Preciso de um projeto elétrico com ART para reforma do meu comércio."></textarea>
         <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
           <button class="btn btn-primary" type="submit">Enviar no WhatsApp</button>
-          <a class="btn btn-outline" href="mailto:contato@lepinsk.eng.br">Enviar por e-mail</a>
+          <a class="btn btn-outline" href="mailto:gustavo@lepinsk-ecotech.com">Enviar por e-mail</a>
         </div>
       </form>
       <div class="whats">
         <div>
-          <div class="seal">Summer Products 2025</div>
-          <p class="note" style="margin-top:8px">Prazo padrão de entrega: até 5 dias úteis (pode variar conforme complexidade).<br>
-          Eng. Gustavo Ribeiro — CREA-SP (Responsável Técnico).</p>
+          <div class="seal">Summer Products 2026</div>
+          <p class="note" style="margin-top:8px">Prazo padrão de entrega: até 5 dias úteis (pode variar com a complexidade).<br>Eng. Gustavo Ribeiro — CREA-SP (Responsável Técnico).</p>
         </div>
       </div>
     </div>
@@ -269,9 +295,10 @@
 
 <footer>
   <div class="container">
-    © Lepinsk Ecotech — Engenharia & Energia • CNPJ/CREA-SP • Política de Privacidade
+    © Lepinsk Ecotech — Engenharia & Energia • CREA-SP • CNPJ • <a href="#institucional">Institucional</a>
   </div>
 </footer>
 
 </body>
 </html>
+
