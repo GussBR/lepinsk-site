@@ -1,508 +1,150 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <title>Lepinsk Ecotech — Engenharia • Energia • Automação</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Engenharia elétrica e soluções de energia para condomínios e comércios. Projetos, ARTs, diagnósticos e eficiência energética com responsabilidade técnica CREA-SP.">
-  <style>
-    /* ========= CORES LEPINSK (tokens) ========= */
-    :root{
-      --lep-green:#1D2615;      /* principal */
-      --lep-orange:#E49400;     /* destaque */
-      --lep-red:#861A1A;        /* headers/ícones */
-      --lep-black:#000000;      /* textos */
-      --ink:#121212;
-      --muted:#5f5f5f;
-      --bg:#ffffff;
-      --card-bd: rgba(0,0,0,.08);
-      --shadow: 0 4px 16px rgba(0,0,0,.08);
-      --focus: 0 0 0 3px rgba(134,26,26,.25);
-      --radius: 16px;
-      --maxw: 1040px;
-      --pad: 16px;
-    }
-
-    /* ========= RESET/BASE ========= */
-    *,*::before,*::after{ box-sizing:border-box }
-    html,body{ margin:0; padding:0; }
-    body{
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, "Noto Sans", sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.5;
-    }
-    img{ max-width:100%; display:block }
-    a{ color: var(--lep-red); text-decoration: none }
-    a:hover{ opacity:.9 }
-    .container{ width:100%; max-width: var(--maxw); margin-inline:auto; padding: 0 var(--pad) }
-    .section{ padding: 40px 0 }
-    h1,h2,h3{ margin: 0 0 12px; line-height:1.2; color: var(--lep-black) }
-    h1{ font-size: 1.75rem }
-    h2{ font-size: 1.5rem }
-    h3{ font-size: 1.125rem }
-    p{ margin: 0 0 10px; color: var(--ink) }
-    .lead{ font-size: 1.05rem; color: var(--ink) }
-    .muted{ color: var(--muted) }
-
-    .btn{
-      display:inline-block; padding:.75rem 1rem; border-radius: .8rem;
-      background: var(--lep-green); color:#fff; font-weight:600; text-align:center;
-      box-shadow: var(--shadow);
-    }
-    .btn.outline{
-      background:#fff; color: var(--lep-green); border:1px solid var(--lep-green);
-    }
-    .btn.orange{ background: var(--lep-orange); color:#000 }
-    .grid{ display:grid; gap: 16px }
-    @media (min-width: 768px){
-      .grid.two{ grid-template-columns: 1fr 1fr }
-      .grid.three{ grid-template-columns: repeat(3, 1fr) }
-    }
-    .card{
-      border:1px solid var(--card-bd); border-radius: var(--radius); padding:16px; background:#fff; box-shadow: var(--shadow);
-    }
-    .kicker{ font-size:.8rem; text-transform:uppercase; letter-spacing:.06em; color: var(--lep-red); font-weight:700; }
-
-    /* ========= HEADER ========= */
-    header.site{
-      padding: 18px 0; border-bottom: 1px solid var(--card-bd); background: #fff; position: sticky; top:0; z-index:50;
-    }
-    .brand{ font-weight:800; color: var(--lep-green) }
-    nav a{ margin-right:16px; font-weight:600 }
-    .hero{ padding: 28px 0 10px }
-
-    /* ========= INSTITUCIONAL ========= */
-    .inst .card h3{ margin-top: 4px }
-    .inst strong{ font-weight:700 }
-
-    /* ========= ENERGIA & EFICIÊNCIA ========= */
-    .list{ display:grid; gap:12px }
-    .list .item{ border:1px solid var(--card-bd); border-radius: var(--radius); padding: 14px; background:#fff }
-    .item h4{ margin:0 0 6px; font-size:1rem }
-    .tagline{ color: var(--muted); margin-bottom: 12px }
-    .bullets{ margin: 8px 0 0 18px; padding:0 }
-    .bullets li{ margin: 4px 0 }
-
-    .badge{
-      display:inline-block; font-size:.75rem; padding:.25rem .5rem; border-radius:999px; border: 1px solid var(--card-bd);
-      background: rgba(228,148,0,.12); color: var(--lep-orange); margin-bottom:6px;
-    }
-
-    /* ========= PROJETOS ========= */
-    .proj .card h3{ margin-bottom: 6px }
-    .small{ font-size:.95rem }
-
-    /* ========= ICONS (inline) ========= */
-    .icon-wrap{ width:36px; height:36px; border-radius:.75rem; display:grid; place-items:center; margin-bottom:.25rem }
-    .icon{ width:22px; height:22px; fill: currentColor }
-    .icon-wrap.solar{ background: rgba(228,148,0,.12); color: var(--lep-orange) }
-    .icon-wrap.meter{ background: rgba(29,38,21,.12); color: var(--lep-green) }
-    .icon-wrap.contract{ background: rgba(134,26,26,.12); color: var(--lep-red) }
-    .icon-wrap.eng{ background: rgba(0,0,0,.08); color: var(--lep-black) }
-
-    /* ========= CASES (scroll/drag/snap) ========= */
-    .cases { position:relative }
-    .cases .section-head { margin-bottom: .5rem }
-    .cases .cases-controls{
-      position:absolute; top:.25rem; right:.25rem; display:flex; gap:.5rem;
-    }
-    .cases .nav{
-      border:1px solid var(--card-bd); background:#fff; padding:.25rem .5rem;
-      border-radius:.5rem; cursor:pointer; box-shadow: var(--shadow);
-    }
-    .cases .nav:focus{ outline: none; box-shadow: var(--focus); }
-
-    .cases-track{
-      display:grid; grid-auto-flow: column; grid-auto-columns: 85%;
-      gap: 1rem; overflow-x:auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch; padding:.5rem 0 1rem; cursor: grab;
-    }
-    .cases-track:active{ cursor: grabbing }
-    @media (min-width: 768px){ .cases-track{ grid-auto-columns: minmax(320px, 28%) } }
-
-    .case-card{
-      scroll-snap-align: start; border:1px solid var(--card-bd); border-radius: var(--radius);
-      padding: 16px; background:#fff; display:grid; align-content:start; gap:.5rem; min-height:220px; box-shadow: var(--shadow);
-    }
-    .case-card:focus{ outline:none; box-shadow: var(--focus), var(--shadow) }
-    .tag{
-      font-size:.75rem; padding:.25rem .5rem; border-radius: 999px; width: fit-content; border:1px solid var(--card-bd);
-    }
-    .tag-solar{ background: rgba(228,148,0,.12); color: var(--lep-orange); border-color: rgba(228,148,0,.35) }
-    .tag-meter{ background: rgba(29,38,21,.10); color: var(--lep-green); border-color: rgba(29,38,21,.25) }
-    .tag-contracts{ background: rgba(134,26,26,.10); color: var(--lep-red); border-color: rgba(134,26,26,.30) }
-    .tag-projects{ background: rgba(0,0,0,.06); color: var(--lep-black); border-color: rgba(0,0,0,.15) }
-
-    /* ========= CTA FINAL ========= */
-    .cta{ background: linear-gradient(180deg, rgba(29,38,21,.08), transparent 70%) }
-    .cta .wrap{ display:grid; gap:12px }
-    @media (min-width:768px){ .cta .wrap{ grid-template-columns: 2fr 1fr; align-items:center } }
-    form{ display:grid; gap:8px }
-    input,textarea{
-      width:100%; padding:.75rem .85rem; border-radius:.75rem; border:1px solid var(--card-bd);
-      font-size:1rem; outline:none;
-    }
-    input:focus, textarea:focus{ box-shadow: var(--focus) }
-    textarea{ min-height: 120px; resize: vertical }
-    .row{ display:grid; gap:8px }
-    @media (min-width:560px){ .row{ grid-template-columns: 1fr 1fr } }
-
-    /* ========= FOOTER ========= */
-    footer.site{ padding: 24px 0; border-top: 1px solid var(--card-bd); font-size:.95rem }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lepinsk Ecotech — Engenharia Elétrica & Soluções de Energia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- ======= SVG ICONS DEFS ======= -->
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-    <!-- Solar -->
-    <symbol id="icon-solar" viewBox="0 0 24 24">
-      <path d="M3 16h18v2H3v-2Zm2-8h3l2 4H7l-2-4Zm7 0h3l2 4h-5l0-4Zm-8 6h16l-1.2-2H5.2L4 14Zm6-10h4v2h-4V4Zm-3.95 1.05 1.41-1.41 1.41 1.41-1.41 1.41-1.41-1.41Zm11.08 0 1.41-1.41 1.41 1.41-1.41 1.41-1.41-1.41Zm-6.13 15.9h2V22h-2v-1.05Z"/>
-    </symbol>
-    <!-- Medidor -->
-    <symbol id="icon-meter" viewBox="0 0 24 24">
-      <path d="M12 2a9 9 0 0 0-9 9v5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-5a9 9 0 0 0-9-9Zm0 2a7 7 0 0 1 7 7v5a1 1 0 0 1-1 1h-2v-2H8v2H6a1 1 0 0 1-1-1v-5a7 7 0 0 1 7-7Zm-4 8h8v2H8v-2Zm4-6a1 1 0 0 0-1 1v2h2V7a1 1 0 0 0-1-1Z"/>
-    </symbol>
-    <!-- Contratos -->
-    <symbol id="icon-contract" viewBox="0 0 24 24">
-      <path d="M7 2h8l4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V6h3.5L14 3.5ZM8 9h8v1.5H8V9Zm0 3h8v1.5H8V12Zm0 3h6v1.5H8V15Z"/>
-    </symbol>
-    <!-- Engenharia -->
-    <symbol id="icon-engineering" viewBox="0 0 24 24">
-      <path d="M12 2l1.5 3.5L17 7l-3.5 1.5L12 12l-1.5-3.5L7 7l3.5-1.5L12 2Zm7.07 9.93-1.41 1.41 1.77 1.77-4.24 4.24-1.77-1.77-1.41 1.41 2.12 2.12a1 1 0 0 0 1.41 0l5.66-5.66a1 1 0 0 0 0-1.41l-2.12-2.12Z"/>
-    </symbol>
-  </svg>
-
-  <!-- ======= HEADER ======= -->
-  <header class="site">
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px">
-      <div class="brand">Lepinsk Ecotech</div>
-      <nav aria-label="Navegação primária">
-        <a href="#institucional">Institucional</a>
-        <a href="#energia">Energia & Eficiência</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#cases">Cases</a>
-        <a href="#contato">Contato</a>
-      </nav>
+  <div class="topbar">
+    <div class="nav container">
+      <a href="#home" class="nav-item"><span class="icon">🏠</span> <span>Home</span></a>
+      <a href="#energia" class="nav-item"><span class="icon">⚡</span> <span>Energia & Eficiência</span></a>
+      <a href="#engenharia" class="nav-item"><span class="icon">🛠️</span> <span>Engenharia & Projetos</span></a>
+      <a href="#cases" class="nav-item"><span class="icon">💼</span> <span>Cases</span></a>
+      <a href="#contato" class="nav-item"><span class="icon">📞</span> <span>Contato</span></a>
     </div>
-    <div class="container hero">
-      <h1>Engenharia elétrica & soluções de energia para condomínios e comércios</h1>
-      <p class="muted">Projetos, ARTs, diagnósticos e eficiência com responsabilidade técnica <strong>CREA-SP</strong>.</p>
-      <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap">
-        <a class="btn" href="#energia">Quero economizar energia</a>
-        <a class="btn outline" href="#projetos">Preciso de projeto/ART</a>
-      </div>
-    </div>
-  </header>
+  </div>
 
-  <!-- ======= INSTITUCIONAL ======= -->
-  <section id="institucional" class="section inst">
-    <div class="container grid two">
-      <div class="card">
-        <div class="kicker">Institucional</div>
-        <p class="lead">
-          Somos uma empresa de engenharia registrada no <strong>CREA-SP</strong>, unindo
-          <strong>energia</strong>, <strong>projetos elétricos</strong> e <strong>automação</strong>
-          para entregar <strong>segurança</strong>, <strong>economia</strong> e <strong>conforto</strong>.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Quem somos</h3>
-        <p><strong>Lepinsk Ecotech</strong><br>
-          <strong>Eng. Gustavo Ribeiro — CREA-SP</strong> (Responsável Técnico).</p>
-        <p>Atuamos em <strong>projetos elétricos</strong>, <strong>diagnósticos energéticos</strong> e
-          <strong>consultoria regulatória</strong>, com foco em eficiência e inovação sustentável.</p>
-      </div>
-      <div class="card" style="grid-column: 1 / -1">
-        <h3>Como trabalhamos</h3>
-        <p><strong>Processo técnico e transparente</strong></p>
-        <p>Briefing → Coleta de dados → Estudo de viabilidade → Projeto e ART → Entrega, homologação e acompanhamento.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= ENERGIA & EFICIÊNCIA ======= -->
-  <section id="energia" class="section">
+  <section id="home" class="hero">
     <div class="container">
-      <div class="kicker">Economia de Energia</div>
-      <h2>Diagnósticos e soluções para reduzir custos e blindar sua conta</h2>
-      <p class="tagline">Escolha o nível de profundidade: do check-up grátis ao estudo avançado — e siga para projeto pronto para obra.</p>
-
-      <div class="grid two" style="margin-top: 12px">
-        <div class="item">
-          <span class="badge">DexPress — Diagnóstico Expresso</span>
-          <h3>Check-up grátis (em poucos dias)</h3>
-          <p>Análise de fatura e consumo para identificar oportunidades de economia e geração solar.</p>
-          <ul class="bullets">
-            <li>Relatório direto ao ponto com estimativas claras de economia</li>
-            <li>Próximos passos recomendados (solar, contratos, medição)</li>
-            <li>Prazo padrão: até 5 dias úteis</li>
-          </ul>
-          <div style="margin-top:10px"><a class="btn" href="#contato">Quero meu diagnóstico</a></div>
+      <div class="hero-title">
+        <div class="brandline">
+          <img src="assets/Logo horizontal - branco.png" alt="Lepinsk Ecotech" class="logo" />
         </div>
-
-        <div class="item">
-          <span class="badge">Estudo Avançado de Viabilidade</span>
-          <h3>Relatório técnico-financeiro completo</h3>
-          <p>Comparativo entre <strong>energia solar</strong>, <strong>mercado livre</strong> e <strong>campanhas de medição</strong>, com payback e sensitividade.</p>
-          <ul class="bullets">
-            <li>Cenários técnicos, CAPEX/OPEX, riscos e compliance</li>
-            <li>Plano de implantação com cronograma</li>
-          </ul>
-          <div style="margin-top:10px"><a class="btn orange" href="#contato">Solicitar estudo</a></div>
+        <div class="hero-head">
+          <h1>ENGENHARIA ELÉTRICA</h1>
+          <h2>E SOLUÇÕES DE ENERGIA</h2>
         </div>
+      </div>
 
-        <div class="item">
-          <span class="badge">Projeto Solar Fotovoltaico</span>
-          <h3>Pronto para obra (com ART)</h3>
-          <p>Projeto elétrico completo conforme NBR 5410 e normas da distribuidora. Ideal para quem já decidiu investir.</p>
-          <ul class="bullets">
-            <li>Memorial, diagramas (unifilar/multifilar), lista de materiais</li>
-            <li>Regularização e homologação junto à concessionária</li>
-          </ul>
-          <div style="margin-top:10px"><a class="btn" href="#contato">Quero meu projeto</a></div>
+      <div class="hero-cards">
+        <div class="card">
+          <h3>Quem somos?</h3>
+          <p>Somos uma empresa de engenharia registrada no <strong>CREA-SP</strong>, unindo <strong>energia, projetos elétricos e automação</strong> para entregar <strong>segurança, economia e conforto</strong>.</p>
+          <p>Atuamos em <strong>projetos elétricos, diagnósticos de energia e consultoria técnica</strong>, com foco em <strong>eficiência e confiabilidade</strong>.</p>
         </div>
+        <div class="card">
+          <h3>O que entregamos?</h3>
+          <p>Combinamos <strong>engenharia, tecnologia</strong> e <strong>experiência prática</strong> para transformar instalações e contas de energia em resultados reais.</p>
+          <p>Desenvolvemos <strong>projetos elétricos completos</strong> e <strong>soluções sob medida</strong>, prontos para execução — com <strong>custos, escopo e prazos definidos</strong>.</p>
+        </div>
+      </div>
 
-        <div class="item">
-          <span class="badge">Medição & Eficiência</span>
-          <h3>Check-up de Eficiência (1–3 meses)</h3>
-          <p>Campanha de medição com recomendações práticas (iluminação, HVAC, refrigeração) e automação aplicada.</p>
-          <ul class="bullets">
-            <li>Instrumentação, coleta e análise de dados</li>
-            <li>Plano de ação por prioridade e ROI</li>
-          </ul>
-          <div style="margin-top:10px"><a class="btn outline" href="#contato">Quero medir primeiro</a></div>
+      <div class="hero-cta">
+        <span>Projetos, ARTs, diagnósticos e eficiência com responsabilidade técnica CREA-SP</span>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#energia">QUERO ECONOMIZAR</a>
+          <a class="btn btn-outline" href="#engenharia">PRECISO DE PROJETO / ART</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======= PROJETOS (Elétricos, ARTs, Laudos, Execução) ======= -->
-  <section id="projetos" class="section proj">
-    <div class="container">
-      <div class="kicker">Projetos & ARTs</div>
-      <h2>Engenharia elétrica com responsabilidade técnica, segurança e conformidade</h2>
-
-      <div class="grid two" style="margin-top: 12px">
-        <div class="card">
-          <div class="icon-wrap eng"><svg class="icon"><use href="#icon-engineering"/></svg></div>
-          <h3>Projetos Elétricos e ARTs — Residenciais, Comerciais e Industriais</h3>
-          <p class="small">Elaboração conforme NBR 5410 e normas da distribuidora, com memorial, diagrama unifilar/multifilar e ART. Regularização e homologação junto à concessionária.</p>
-          <div style="margin-top:10px"><a class="btn" href="#contato">Solicitar orçamento</a></div>
-          <p class="muted" style="margin-top:6px">Prazo padrão: até 5 dias úteis (pode variar com a complexidade).</p>
-        </div>
-
-        <div class="card">
-          <div class="icon-wrap eng"><svg class="icon"><use href="#icon-engineering"/></svg></div>
-          <h3>Laudo de Conformidade & Vistoria</h3>
-          <p class="small">Relatório técnico para condomínios, seguradoras e conformidade com normas. Emissão de ART.</p>
-          <div style="margin-top:10px"><a class="btn outline" href="#contato">Solicitar laudo</a></div>
-        </div>
-
-        <div class="card">
-          <div class="icon-wrap eng"><svg class="icon"><use href="#icon-engineering"/></svg></div>
-          <h3>Perícia Técnica (TJ)</h3>
-          <p class="small">Atuação como perito cadastrado no Tribunal de Justiça. Laudos periciais e suporte a processos.</p>
-          <div style="margin-top:10px"><a class="btn outline" href="#contato">Falar sobre perícia</a></div>
-        </div>
-
-        <div class="card">
-          <div class="icon-wrap eng"><svg class="icon"><use href="#icon-engineering"/></svg></div>
-          <h3>Acompanhamento de Obras</h3>
-          <p class="small">Supervisão técnica e comissionamento de instalações (parceria com empresa de engenharia).</p>
-          <div style="margin-top:10px"><a class="btn outline" href="#contato">Agendar acompanhamento</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= CASES (scroll horizontal + arrastar + ícones) ======= -->
-  <section id="cases" class="section cases" aria-labelledby="cases-title">
+  <section id="energia" class="section warm">
     <div class="container">
       <div class="section-head">
-        <div class="kicker">Portfólio</div>
-        <h2 id="cases-title">Cases</h2>
-        <p class="muted">Cada projeto é um capítulo da nossa engenharia aplicada.</p>
+        <h3>ENERGIA E EFICIÊNCIA</h3>
+        <div class="energram">
+          <span class="badge-new">NEW</span>
+          <a href="#energram">Conheça o Energram!</a>
+        </div>
+      </div>
+      <p class="section-sub">Soluções para reduzir custos e blindar sua conta de energia contra aumentos.</p>
+
+      <div class="badges three">
+        <div class="badge">
+          <div class="badge-icon"><img src="assets/caseGD.png" alt="Energia Solar"></div>
+          <div class="badge-title">Energia Solar</div>
+          <div class="badge-text">Geração própria, local ou remota</div>
+        </div>
+        <div class="badge">
+          <div class="badge-icon"><img src="assets/caseML.png" alt="Contratos de Energia"></div>
+          <div class="badge-title">Contratos de Energia</div>
+          <div class="badge-text">Migração ao Mercado Livre e gestão de tarifas</div>
+        </div>
+        <div class="badge">
+          <div class="badge-icon"><img src="assets/caseGD.png" alt="Medição e Eficiência"></div>
+          <div class="badge-title">Medição & Eficiência</div>
+          <div class="badge-text">Medição para eficiência, baterias e qualidade</div>
+        </div>
       </div>
 
-      <div class="cases-controls" aria-hidden="true">
-        <button class="nav prev" aria-label="Anterior" type="button">‹</button>
-        <button class="nav next" aria-label="Próximo" type="button">›</button>
+      <div class="cta-center">
+        <a class="btn btn-primary" href="#contato">QUERO ECONOMIZAR</a>
       </div>
-
-      <div class="cases-track" role="list" aria-label="Lista de cases com rolagem horizontal">
-        <!-- IS Vila Buarque -->
-        <article class="case-card" role="listitem" tabindex="0">
-          <div class="icon-wrap solar" aria-hidden="true"><svg class="icon"><use href="#icon-solar"/></svg></div>
-          <span class="tag tag-solar">#energiasolar</span>
-          <h3>IS Vila Buarque — SP</h3>
-          <p>Diagnóstico, estudo de viabilidade técnica/financeira para usina no rooftop e aprovação de linha de financiamento.</p>
-          <a href="#contato" class="btn">Quero meu diagnóstico de energia solar</a>
-        </article>
-
-        <!-- Platô -->
-        <article class="case-card" role="listitem" tabindex="0">
-          <div class="icon-wrap contract" aria-hidden="true"><svg class="icon"><use href="#icon-contract"/></svg></div>
-          <span class="tag tag-contracts">#mercadolivre</span>
-          <h3>Platô</h3>
-          <p>Diagnóstico e conexão com comercializadoras com condições exclusivas para cliente Lepinsk.</p>
-          <a href="#contato" class="btn">Quero migrar com a Lepinsk</a>
-        </article>
-
-        <!-- Papelaria — SP -->
-        <article class="case-card" role="listitem" tabindex="0">
-          <div class="icon-wrap solar" aria-hidden="true"><svg class="icon"><use href="#icon-solar"/></svg></div>
-          <span class="tag tag-solar">#solarecarroeletrico</span>
-          <h3>Papelaria — SP</h3>
-          <p>Projeto executivo solar com expansão de carga e infraestrutura para veículo elétrico.</p>
-          <a href="#contato" class="btn">Quero um projeto para meu VE</a>
-        </article>
-
-        <!-- Cadoro -->
-        <article class="case-card" role="listitem" tabindex="0">
-          <div class="icon-wrap eng" aria-hidden="true"><svg class="icon"><use href="#icon-engineering"/></svg></div>
-          <span class="tag tag-projects">#energiasolar</span>
-          <h3>Cadoro</h3>
-          <p>Projeto executivo e implementação de usina em rooftop.</p>
-          <a href="#contato" class="btn">Falar com engenheiro</a>
-        </article>
-
-        <!-- Bela Cintra -->
-        <article class="case-card" role="listitem" tabindex="0">
-          <div class="icon-wrap solar" aria-hidden="true"><svg class="icon"><use href="#icon-solar"/></svg></div>
-          <span class="tag tag-solar">#energiasolar</span>
-          <h3>Bela Cintra</h3>
-          <p>Usina de investimento para injeção de energia no condomínio.</p>
-          <a href="#contato" class="btn">Falar com engenheiro</a>
-        </article>
-
-        <!-- Supermercado EE -->
-        <article class="case-card" role="listitem" tabindex="0">
-          <div class="icon-wrap meter" aria-hidden="true"><svg class="icon"><use href="#icon-meter"/></svg></div>
-          <span class="tag tag-meter">#mediçãoeeficiencia</span>
-          <h3>Supermercado EE</h3>
-          <p>Campanha de medição e automação para reduzir HVAC, frio alimentar e iluminação.</p>
-          <a href="#contato" class="btn">Quero medir primeiro</a>
-        </article>
-
-        <!-- Residencial Santa Cecília -->
-        <article class="case-card" role="listitem" tabindex="0">
-          <div class="icon-wrap eng" aria-hidden="true"><svg class="icon"><use href="#icon-engineering"/></svg></div>
-          <span class="tag tag-projects">#automação</span>
-          <h3>Residencial Santa Cecília</h3>
-          <p>Modernização elétrica para casa inteligente.</p>
-          <a href="#contato" class="btn">Falar com engenheiro</a>
-        </article>
-
-        <!-- Academia -->
-        <article class="case-card" role="listitem" tabindex="0">
-          <div class="icon-wrap solar" aria-hidden="true"><svg class="icon"><use href="#icon-solar"/></svg></div>
-          <span class="tag tag-solar">#energiasolar</span>
-          <h3>Academia</h3>
-          <p>Projeto executivo e implementação de usina em rooftop.</p>
-          <a href="#contato" class="btn">Falar com engenheiro</a>
-        </article>
-
-        <!-- Padaria • Restaurante • Hotel -->
-        <article class="case-card" role="listitem" tabindex="0">
-          <div class="icon-wrap solar" aria-hidden="true"><svg class="icon"><use href="#icon-solar"/></svg></div>
-          <span class="tag tag-solar">#energiasolar</span>
-          <h3>Padaria • Restaurante • Hotel</h3>
-          <p>Projeto executivo e implementação de usina em rooftop.</p>
-          <a href="#contato" class="btn">Falar com engenheiro</a>
-        </article>
-      </div>
-
-      <div style="margin-top:6px"><a href="#cases-base" class="muted">Conheça os cases Lepinsk →</a></div>
     </div>
   </section>
 
-  <!-- ======= CTA FINAL ======= -->
-  <section id="contato" class="section cta">
+  <section id="engenharia" class="section deep">
     <div class="container">
-      <div class="kicker">Fale com um engenheiro</div>
-      <h2>Conte o que você precisa e receba o melhor caminho técnico</h2>
-      <div class="wrap" style="margin-top: 8px">
-        <form action="#" method="post" aria-label="Formulário de contato">
-          <div class="row">
-            <div><label class="muted">Nome</label><input name="nome" placeholder="Seu nome"></div>
-            <div><label class="muted">E-mail</label><input type="email" name="email" placeholder="voce@email.com"></div>
-          </div>
-          <div>
-            <label class="muted">Mensagem</label>
-            <textarea name="mensagem" placeholder="Descreva rapidamente sua necessidade: diagnóstico, projeto, laudo, etc."></textarea>
-          </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top: 6px">
-            <a class="btn" href="https://wa.me/5511998999163" target="_blank" rel="noopener">Enviar no WhatsApp</a>
-            <a class="btn outline" href="mailto:gustavo@lepinsk-ecotech.com">Enviar por e-mail</a>
-          </div>
-          <p class="muted" style="margin-top:8px">
-            Prazo padrão de entrega: até 5 dias úteis (pode variar com a complexidade).<br>
-            <strong>Eng. Gustavo Ribeiro — CREA-SP</strong> (Responsável Técnico).
-          </p>
-        </form>
+      <h3 class="section-title light">ENGENHARIA E PROJETO</h3>
+      <p class="section-sub light">Engenharia com responsabilidade técnica, segurança e conformidade.</p>
 
-        <div class="card">
-          <h3>Contatos</h3>
-          <p><strong>E-mail:</strong> gustavo@lepinsk-ecotech.com</p>
-          <p><strong>WhatsApp:</strong> (11) 99899-9163</p>
-          <p><strong>Instagram:</strong> @gus.energia</p>
-          <hr style="border:none; border-top:1px solid var(--card-bd); margin:12px 0">
-          <p class="muted">Empresa de Engenharia • CREA-SP</p>
+      <div class="badges four">
+        <div class="badge dark"><div class="badge-icon">📐</div><div class="badge-title">Projetos Elétricos</div><div class="badge-text">Residenciais, comerciais e industriais</div></div>
+        <div class="badge dark"><div class="badge-icon">📋</div><div class="badge-title">Laudos, vistorias & perícia</div><div class="badge-text">Conformidade e regularização com ART</div></div>
+        <div class="badge dark"><div class="badge-icon">🧪</div><div class="badge-title">Perícia Técnica</div><div class="badge-text">Atuação judicial e laudos periciais</div></div>
+        <div class="badge dark"><div class="badge-icon">🏗️</div><div class="badge-title">Acompanhamento & Obras</div><div class="badge-text">Supervisão e comissionamento</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases" class="section cases">
+    <div class="container">
+      <h3 class="section-title">CASES</h3>
+
+      <div class="case">
+        <div class="case-img"><img src="assets/caseGD.png" alt="Usina solar no topo de São Paulo"></div>
+        <div class="case-text">
+          <h4>Solar no topo de SP</h4>
+          <p><strong>Problema:</strong> custos elevados nas áreas comuns e rooftop sem aproveitamento.</p>
+          <p><strong>Solução:</strong> instalação de 40 módulos solares, gerando 17 MWh/ano para consumo local.</p>
+          <p class="economia"><strong>Economia anual de R$ 15.570,00</strong></p>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-img"><img src="assets/caseML.png" alt="Contratos modernos de energia"></div>
+        <div class="case-text">
+          <h4>Contratos modernos</h4>
+          <p><strong>Problema:</strong> tarifas elevadas no mercado cativo e custos sem previsibilidade.</p>
+          <p><strong>Solução:</strong> migração para o Mercado Livre de Energia, com negociação de contratos e escolha de fornecedor.</p>
+          <p class="economia"><strong>Economia anual de R$ 140.000,00</strong></p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="site">
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
-      <p>© <span id="year"></span> Lepinsk Ecotech. Todos os direitos reservados.</p>
-      <p class="muted">Engenharia ampliada por tecnologia.</p>
+  <footer id="contato" class="footer">
+    <div class="container">
+      <h3 class="section-title">Fale com um Engenheiro</h3>
+      <form class="contact-box" onsubmit="event.preventDefault(); alert('Obrigado! Entraremos em contato.');">
+        <div class="grid">
+          <label>Nome<input type="text" required placeholder="Seu nome" /></label>
+          <label>E-mail<input type="email" required placeholder="seu@email.com" /></label>
+          <label>Telefone<input type="tel" placeholder="(11) 99999-9999" /></label>
+          <label>Envie sua fatura (opcional)<input type="file" accept=".pdf,.jpg,.jpeg,.png" /></label>
+          <label class="full">Mensagem<textarea rows="4" placeholder="Conte rapidamente seu caso ou dúvida"></textarea></label>
+        </div>
+        <div class="send"><button class="btn btn-primary" type="submit">Enviar</button><a class="btn btn-outline" href="https://wa.me/" target="_blank" rel="noopener">Falar no WhatsApp</a></div>
+        <small class="legal">© 2025 Lepinsk Ecotech — Engenharia registrada no CREA-SP.</small>
+      </form>
     </div>
   </footer>
-
-  <!-- ======= JS: year + cases (botões/arrastar/teclado) ======= -->
-  <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // cases nav + drag
-    (function(){
-      const track = document.querySelector('.cases-track');
-      const prev = document.querySelector('.cases .prev');
-      const next = document.querySelector('.cases .next');
-      if (!track) return;
-
-      const step = () => track.clientWidth * 0.9;
-      if (prev && next) {
-        prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-        next.addEventListener('click', () => track.scrollBy({ left:  step(), behavior: 'smooth' }));
-      }
-
-      let isDown = false, startX = 0, scrollLeft = 0;
-      const start = (clientX) => { isDown = true; startX = clientX - track.getBoundingClientRect().left; scrollLeft = track.scrollLeft; track.classList.add('dragging'); };
-      const move  = (clientX) => { if(!isDown) return; const x = clientX - track.getBoundingClientRect().left; const walk = (x - startX); track.scrollLeft = scrollLeft - walk; };
-      const stop  = () => { isDown = false; track.classList.remove('dragging'); };
-
-      // Mouse
-      track.addEventListener('mousedown', (e)=> start(e.clientX));
-      track.addEventListener('mousemove', (e)=> move(e.clientX));
-      track.addEventListener('mouseleave', stop);
-      track.addEventListener('mouseup', stop);
-
-      // Touch
-      track.addEventListener('touchstart', (e)=> start(e.touches[0].clientX), {passive:true});
-      track.addEventListener('touchmove',  (e)=> move(e.touches[0].clientX), {passive:true});
-      track.addEventListener('touchend', stop);
-
-      // Teclado
-      track.addEventListener('keydown', (e)=>{
-        if (e.key === 'ArrowRight') track.scrollBy({left: step()/2, behavior:'smooth'});
-        if (e.key === 'ArrowLeft')  track.scrollBy({left:-step()/2, behavior:'smooth'});
-      });
-    }());
-  </script>
 </body>
 </html>
-
